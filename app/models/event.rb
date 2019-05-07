@@ -9,9 +9,9 @@ class Event < ApplicationRecord
   validates :location, presence: true
 
 
-  belongs_to :admin, class_name: "User"
+  belongs_to :admin, foreign_key: "admin_id", class_name: "User"
 
-  has_many :attendances, foreign_key: 'rented_accomodation_id'
+  has_many :attendances, foreign_key: 'created_event_id'
   has_many :participants, foreign_key: 'participant_id', class_name: "User", through: :attendances
 
 
