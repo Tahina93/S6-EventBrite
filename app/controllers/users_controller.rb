@@ -33,7 +33,10 @@ class UsersController < ApplicationController
     end
 
     def is_current_user?
-     return @user==current_user
+     unless @user==current_user
+      flash[:danger] = "Tu n'es pas cet utilisateur."
+       redirect_to root_path
+     end
    end
 
  end
