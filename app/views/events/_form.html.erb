@@ -13,18 +13,18 @@
 
 
 <div class="form-group">
-  <%= form.label :start_date %>
+  <%= form.label :start_date, "Date de début" %>
   <%= form.datetime_select :start_date, :html=>{:class => "form-control, form-control-sm"} %>
 </div>
 
 <div class="form-group">
-  <%= form.label :duration %>
+  <%= form.label :duration, "Durée" %>
   <%= form.number_field :duration,
   class: "form-control" %>
 </div>
 
 <div class="form-group">
-  <%= form.label :title %>
+  <%= form.label :title, "Titre" %>
   <%= form.text_field :title,
   class: "form-control" %>
 </div>
@@ -36,19 +36,19 @@
 </div>
 
 <div class="form-group">
-  <%= form.label :price %>
+  <%= form.label :price, "Prix" %>
   <%= form.number_field :price,
   class: "form-control" %>
 </div>
 
 <div class="form-group">
-  <%= form.label :location %>
+  <%= form.label :location, "Lieu" %>
   <%= form.text_field :location,
   class: "form-control" %>
 </div>
 
 <div class="actions mt-5">
-  <%= form.submit "Créer l'event", class: "btn btn-lg btn-primary btn-block"%>
+  <%= form.submit "Envoyer", class: "btn btn-lg btn-primary btn-block"%>
 </div>
 
 <% end %>

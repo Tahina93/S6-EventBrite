@@ -1,7 +1,9 @@
 <div class="container">
-    <h1>Modifier <%= @event.title %></h1>
+    <h1 class="text-center">Modifier <%= @event.title %></h1>
     <%= render 'form', event: @event %>
 
-    <%= link_to 'Show', @event %> |
-    <%= link_to 'Back', events_path %>
+    <p class="text-center">
+        <%= link_to 'Evenement', @event, class: "btn btn-info"%> |
+        <%= link_to 'Retour', events_path, class: "btn btn-light" %>
+    </p>
 </div>

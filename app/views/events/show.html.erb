@@ -8,7 +8,12 @@
     <p class="card-text display-5"><%= @event.description %></p><hr/>
     <p class="display-5">
       <strong>Organisateur&nbsp;:</strong>
-      <%= @admin.first_name + " " + @admin.last_name + " (" + @admin.email + ")"%><br/>
+      <% if @admin.first_name && @admin.last_name %>
+      <%= @admin.first_name + " " + @admin.last_name + " (" + @admin.email + ")"%>
+      <% else %>
+      <%= @admin.email %>
+      <% end %>
+      <br/>
       <strong>Début&nbsp;:</strong>
       <%= @event.start_date %><br/>
       <strong>Fin&nbsp;:</strong>
@@ -23,9 +28,9 @@
   </div>
   <div class="card-footer text-muted">
     <% if @event.admin == current_user %>
-    <%= link_to 'Edit', edit_event_path(@event), class: "btn btn-info"%>
+    <%= link_to 'Modifier', edit_event_path(@event), class: "btn btn-info"%>
     <% end %>
-    <%= link_to 'Back', root_path, class: "btn btn-primary" %>
+    <%= link_to 'Retour', root_path, class: "btn btn-primary" %>
   </div>
 </div>
 
