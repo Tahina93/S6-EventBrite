@@ -10,6 +10,11 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
+    user = set_user
+    @page_title = "Profil"
+    if user.first_name || user.last_name
+      @page_title << "de " + user.first_name + " " + user.last_name
+    end
   end
 
 

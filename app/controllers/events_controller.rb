@@ -11,7 +11,7 @@ class EventsController < ApplicationController
   # GET /events/1
   # GET /events/1.json
   def show
-    event = Event.find(params[:id])
+    event = set_event
     @page_title = event.title
     @admin = event.admin
     @nb_visitors = Attendance.where(created_event_id: params[:id]).count

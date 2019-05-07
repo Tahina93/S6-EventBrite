@@ -1,7 +1,7 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
   <head>
-    <title><%= @page_title %> | Eventbrite</title>
+    <title><%= @page_title %><%= " | " if @page_title %>Eventbrite</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -31,22 +31,22 @@
           <li class="nav-item">
             <div class="dropdown show">
               <a class="nav-link dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Sign up/Sign in
+                Connexion
               </a>
               <div class="dropdown-menu bg-dark" aria-labelledby="dropdownMenuLink">
-                <a class="nav-link" href="<%= new_user_registration_path %>">Sign up</a>
-                <a class="nav-link" href="<%= new_user_session_path %>">Sign in</a>
+                <a class="nav-link" href="<%= new_user_registration_path %>">S'enregistrer</a>
+                <a class="nav-link" href="<%= new_user_session_path %>">Se connecter</a>
               </div>
           </li>
           <% else%>
           <li class="nav-item">
             <div class="dropdown show">
               <a class="nav-link dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Menu
+                <%= current_user.email %>
               </a>
               <div class="dropdown-menu bg-dark" aria-labelledby="dropdownMenuLink">
                 <a class="nav-link" href="<%= user_path(current_user.id) %>">Profil</a>
-                <a class="nav-link" href="<%= destroy_user_session_path %>" data-method= "delete">Deconnexion</a>
+                <a class="nav-link" href="<%= destroy_user_session_path %>" data-method= "delete">Déconnexion</a>
               </div>
           </li>
 
