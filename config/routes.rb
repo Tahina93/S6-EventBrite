@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
   #get 'events/index'
   devise_for :users
-  
-  resources :users
+
+  resources :users, only: [:show]
   resources :events
   root 'events#index'
   #get 'static_page/index'

@@ -1,29 +1,41 @@
-<p id="notice"><%= notice %></p>
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <div class="card" style="width: 18rem;">
+        <img class="card-img-top" src="https://images.unsplash.com/photo-1495366821225-0a3d30d20b5e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title"> <%= @user.first_name %> <%= @user.last_name %></h5>
+          <p class="card-text"><strong>Description :</strong> <%= @user.description %></p>
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item"><strong>Prénom :</strong> <%= @user.first_name %></li>
+          <li class="list-group-item"><strong>Nom :</strong> <%= @user.last_name %></li>
+          <li class="list-group-item"><strong>Email :</strong> <%= @user.email %></li>
+        </ul>
+        <div class="card-body">
+          <%= link_to 'Edit', edit_user_registration_path(@user), class:"card-link" %>
+          <%= link_to 'Back', root_path, class:"card-link" %>
+        </div>
+      </div>
+    </div>
+  </div>
 
-<p>
-  <strong>Email:</strong>
-  <%= @user.email %>
-</p>
 
-<p>
-  <strong>Encrypted password:</strong>
-  <%= @user.encrypted_password %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @user.description %>
-</p>
-
-<p>
-  <strong>First name:</strong>
-  <%= @user.first_name %>
-</p>
-
-<p>
-  <strong>Last name:</strong>
-  <%= @user.last_name %>
-</p>
-
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+  <% if false %>
+  <div class="card" style="width: 18rem;">
+    <img class="card-img-top" src="..." alt="Card image cap">
+    <div class="card-body">
+      <h5 class="card-title">Card title</h5>
+      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    </div>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">Cras justo odio</li>
+      <li class="list-group-item">Dapibus ac facilisis in</li>
+      <li class="list-group-item">Vestibulum at eros</li>
+    </ul>
+    <div class="card-body">
+      <a href="#" class="card-link">Card link</a>
+      <a href="#" class="card-link">Another link</a>
+    </div>
+  </div>
+  <%end%>
