@@ -11,6 +11,7 @@ class EventsController < ApplicationController
   # GET /events/1
   # GET /events/1.json
   def show
+    @page_title = Event.find(params[:id]).title
   end
 
   # GET /events/new
@@ -21,6 +22,8 @@ class EventsController < ApplicationController
 
   # GET /events/1/edit
   def edit
+    @event = Event.find(params[:id])
+    @page_title = "Editer \"#{@event.title}\""
   end
 
   # POST /events
