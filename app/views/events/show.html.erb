@@ -1,34 +1,36 @@
-<p id="notice"><%= notice %></p>
+<div class="container">
+  <p id="notice"><%= notice %></p>
+  <div class="card text-center">
+  <div class="card-header">
+    <h1><%= @event.title %></h1>
+  </div>
+  <div class="card-body">
+    <p class="card-text display-5"><%= @event.description %></p><hr/>
+    <p class="display-5">
+      <strong>Date&nbsp;:</strong>
+      <%= @event.start_date %><br/>
+      <strong>Durée&nbsp;:</strong>
+      <%= @event.duration %> minutes<br/>
+      <strong>Price&nbsp;:</strong>
+      <%= @event.price %> €<br/>
+      <strong>Location&nbsp;:</strong>
+      <%= @event.location %>
+    </p>
+  </div>
+  <div class="card-footer text-muted">
+    <% if @event.admin == current_user %>
+    <%= link_to 'Edit', edit_event_path(@event), class: "btn btn-info"%>
+    <% end %>
+    <%= link_to 'Back', root_path, class: "btn btn-primary" %>
+  </div>
+</div>
 
-<p>
-  <strong>Start date:</strong>
-  <%= @event.start_date %>
-</p>
 
-<p>
-  <strong>Duration:</strong>
-  <%= @event.duration %>
-</p>
 
-<p>
-  <strong>Title:</strong>
-  <%= @event.title %>
-</p>
 
-<p>
-  <strong>Description:</strong>
-  <%= @event.description %>
-</p>
+  <p>
+    
+  </p>
 
-<p>
-  <strong>Price:</strong>
-  <%= @event.price %>
-</p>
-
-<p>
-  <strong>Location:</strong>
-  <%= @event.location %>
-</p>
-
-<%= link_to 'Edit', edit_event_path(@event) %> |
-<%= link_to 'Back', events_path %>
+  
+</div>

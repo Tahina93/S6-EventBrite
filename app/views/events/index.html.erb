@@ -11,7 +11,7 @@
   <% @events.each do |event| %>
   <div class="card">
     <div class="card-header" id="heading<%= event.id %>">
-      <h2 class="mb-0">
+      <h2 class="mb-0 text-center">
         <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapse<%= event.id %>" aria-expanded="true" aria-controls="collapse<%= event.id %>">
           <%= event.title %>
         </button>
@@ -20,12 +20,10 @@
 
     <div id="collapse<%= event.id %>" class="collapse" aria-labelledby="heading<%= event.id %>" data-parent="#accordionEvent">
       <div class="card-body">
-        <strong>Date&nbsp;: </strong><%= event.start_date %><br/>
-        <strong>Durée&nbsp;: </strong><%= event.duration %> minutes<br/>
-        <strong>Prix&nbsp;: </strong><%= event.price %> €<br/>
-        <strong>Lieu&nbsp;: </strong><%= event.location %><br/>
-        <hr/>
-        <div><%= event.description %></div>
+        <div><%= event.description %></div><hr/>
+        <p>
+          <strong>Date&nbsp;: </strong><%= event.start_date %>
+        </p>
       </div>
       <div class="card-footer text-muted text-center">
         <div>
