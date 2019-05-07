@@ -1,0 +1,51 @@
+<h1>So long and thanks for all the fish !</h1>
+
+<table>
+    <table-caption>Utilisateurs</table-caption>
+    <thead>
+        <tr>
+            <th>Prénom</th>
+            <th>Nom</th>
+            <th>E-mail</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% @users.each do |user| %>
+        <tr>
+            <td><%= user.first_name %></td>
+            <td><%= user.last_name %></td>
+            <td><%= user.email %></td>
+            <td><%= user.description %></td>
+        </tr>
+        <% end %>
+    </tbody>
+</table>
+
+<table>
+    <table-caption>Evenement</table-caption>
+    <thead>
+        <tr>
+            <th>Date de début</th>
+            <th>Durée</th>
+            <th>Titre</th>
+            <th>Description</th>
+            <th>Prix</th>
+            <th>Lieu</th>
+            <th>Organisateur</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% @events.each do |event| %>
+        <tr>
+            <td><%= event.start_date %></td>
+            <td><%= event.duration %></td>
+            <td><%= event.title %></td>
+            <td><%= event.description %></td>
+            <td><%= event.price %></td>
+            <td><%= event.location %></td>
+            <td><%= event.admin.first_name + " " + event.admin.last_name %></td>
+        </tr>
+        <% end %>
+    </tbody>
+</table>

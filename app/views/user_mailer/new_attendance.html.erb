@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1><%= @visitor.first_name %> <%= @visitor.last_name %> s'est inscrit à l'événement "<%= @event.title %></h1>
+    <p>
+      <%= @visitor.first_name %> <%= @visitor.last_name %> (<%= @visitor.email %>) participera, le <%= @event.start_date %>à <%= @event.location %>, à l'événement "<%= @event.title %>"
+    </p>
+    <p> À plus tard !</p>
+    <p class="signature">Les admins de Event in Lyon</p>
+  </body>
+</html>
