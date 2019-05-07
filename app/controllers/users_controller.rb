@@ -1,11 +1,8 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :set_user, only: [:show, :destroy]
+  before_action :authenticate_user!, only: [:show]
+  before_action :is_current_user?, only: [:show]
 
-  # GET /users
-  # GET /users.json
-  def index
-    @users = User.all
-  end
 
   # GET /users/1
   # GET /users/1.json
@@ -15,8 +12,9 @@ class UsersController < ApplicationController
     if user.first_name || user.last_name
       @page_title << "de " + user.first_name + " " + user.last_name
     end
+    @events = user.created_events
+    @owned_events = user.owned_events
   end
-
 
   # DELETE /users/1
   # DELETE /users/1.json
@@ -38,4 +36,12 @@ class UsersController < ApplicationController
     def user_params
       params.require(:user).permit(:email, :encrypted_password, :description, :first_name, :last_name)
     end
-end
+
+    def is_current_user?
+     unless @user==current_user
+      flash[:danger] = "Tu n'es pas cet utilisateur."
+       redirect_to root_path
+     end
+   end
+
+ end

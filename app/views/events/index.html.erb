@@ -2,42 +2,46 @@
   <p id="notice"><%= notice %></p>
 
   <h1 class="text-center">Bienvenue sur Event Brite</h1>
+  <% if flash[:danger] %>
+  <div class="alert alert-danger">
+    <%= flash[:danger] %>
+  </div>
+  <% end %>
 
-  
   <p>
     <%= link_to 'Nouvel événement', new_event_path, class: "btn btn-success" %>
   </p>
   <div class="accordion" id="accordionEvent">
-  <% @events.each do |event| %>
-  <div class="card">
-    <div class="card-header" id="heading<%= event.id %>">
-      <h2 class="mb-0 text-center">
-        <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapse<%= event.id %>" aria-expanded="true" aria-controls="collapse<%= event.id %>">
-          <%= event.title %>
-        </button>
-      </h2>
-    </div>
+    <% @events.each do |event| %>
+    <div class="card">
+      <div class="card-header" id="heading<%= event.id %>">
+        <h2 class="mb-0 text-center">
+          <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapse<%= event.id %>" aria-expanded="true" aria-controls="collapse<%= event.id %>">
+            <%= event.title %>
+          </button>
+        </h2>
+      </div>
 
-    <div id="collapse<%= event.id %>" class="collapse" aria-labelledby="heading<%= event.id %>" data-parent="#accordionEvent">
-      <div class="card-body">
-        <div><%= event.description %></div><hr/>
-        <p>
-          <strong>Date&nbsp;: </strong><%= event.start_date %>
-        </p>
-      </div>
-      <div class="card-footer text-muted text-center">
-        <div>
-          <%= link_to 'Show', event_path(event), class: "btn btn-primary" %>
+      <div id="collapse<%= event.id %>" class="collapse" aria-labelledby="heading<%= event.id %>" data-parent="#accordionEvent">
+        <div class="card-body">
+          <div><%= event.description %></div><hr/>
+          <p>
+            <strong>Date&nbsp;: </strong><%= event.start_date %>
+          </p>
         </div>
-        <% if event.admin == current_user %>
-        <div>
-        <% else %>
-        <div style="visibility: hidden">
-        <% end %>
-          <%= link_to 'Edit', edit_event_path(event), class: "btn btn-info" %>
+        <div class="card-footer text-muted text-center">
+          <div>
+            <%= link_to 'Show', event_path(event), class: "btn btn-primary" %>
+          </div>
+          <% if event.admin == current_user %>
+          <div>
+            <% else %>
+            <div style="visibility: hidden">
+              <% end %>
+              <%= link_to 'Edit', edit_event_path(event), class: "btn btn-info" %>
+            </div>
+          </div>
         </div>
       </div>
+      <% end %>
     </div>
-  </div>
-  <% end %>
-</div>
