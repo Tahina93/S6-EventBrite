@@ -1,36 +1,45 @@
-<p id="notice"><%= notice %></p>
+<div class="container">
+  <p id="notice"><%= notice %></p>
 
-<h1>Events</h1>
+  <h1 class="text-center">Bienvenue sur Event Brite</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Start date</th>
-      <th>Duration</th>
-      <th>Title</th>
-      <th>Description</th>
-      <th>Price</th>
-      <th>Location</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+  
+  <p>
+    <%= link_to 'Nouvel événement', new_event_path, class: "btn btn-success" %>
+  </p>
+  <div class="accordion" id="accordionEvent">
+  <% @events.each do |event| %>
+  <div class="card">
+    <div class="card-header" id="heading<%= event.id %>">
+      <h2 class="mb-0">
+        <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapse<%= event.id %>" aria-expanded="true" aria-controls="collapse<%= event.id %>">
+          <%= event.title %>
+        </button>
+      </h2>
+    </div>
 
-  <tbody>
-    <% @events.each do |event| %>
-      <tr>
-        <td><%= event.start_date %></td>
-        <td><%= event.duration %></td>
-        <td><%= event.title %></td>
-        <td><%= event.description %></td>
-        <td><%= event.price %></td>
-        <td><%= event.location %></td>
-        <td><%= link_to 'Show', event_path(event) %></td>
-        <td><%= link_to 'Edit', edit_event_path(event) %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Event', new_event_path %>
+    <div id="collapse<%= event.id %>" class="collapse" aria-labelledby="heading<%= event.id %>" data-parent="#accordionEvent">
+      <div class="card-body">
+        <strong>Date&nbsp;: </strong><%= event.start_date %><br/>
+        <strong>Durée&nbsp;: </strong><%= event.duration %> minutes<br/>
+        <strong>Prix&nbsp;: </strong><%= event.price %> €<br/>
+        <strong>Lieu&nbsp;: </strong><%= event.location %><br/>
+        <hr/>
+        <div><%= event.description %></div>
+      </div>
+      <div class="card-footer text-muted text-center">
+        <div>
+          <%= link_to 'Show', event_path(event), class: "btn btn-primary" %>
+        </div>
+        <% if event.admin == current_user %>
+        <div>
+        <% else %>
+        <div style="visibility: hidden">
+        <% end %>
+          <%= link_to 'Edit', edit_event_path(event), class: "btn btn-info" %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <% end %>
+</div>
