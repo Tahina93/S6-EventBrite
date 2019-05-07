@@ -7,11 +7,11 @@
         <h1 class="h3 mb-3 font-weight-normal text-center">Se connecter</h1>
         <%= devise_error_messages! %>
         <div class="form-group">
-          <%= f.label :email, "Email" %><br />
+          <%= f.label :email, "E-mail" %><br />
           <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
         </div>
          <div class="form-group">
-    <%= f.label :password %><br />
+    <%= f.label :password, "Mot de passe" %><br />
     <%= f.password_field :password, autocomplete: "current-password", class: "form-control" %>
   </div>
 
@@ -19,7 +19,7 @@
     <div class="field">
     <p>
       <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
+      <%= f.label :remember_me, "Se souvenir de moi" %>
     </p>
     </div>
   <% end %>
