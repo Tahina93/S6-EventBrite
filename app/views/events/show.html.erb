@@ -7,14 +7,18 @@
   <div class="card-body">
     <p class="card-text display-5"><%= @event.description %></p><hr/>
     <p class="display-5">
-      <strong>Date&nbsp;:</strong>
+      <strong>Organisateur&nbsp;:</strong>
+      <%= @admin.first_name + " " + @admin.last_name + " (" + @admin.email + ")"%><br/>
+      <strong>Début&nbsp;:</strong>
       <%= @event.start_date %><br/>
-      <strong>Durée&nbsp;:</strong>
-      <%= @event.duration %> minutes<br/>
+      <strong>Fin&nbsp;:</strong>
+      <%= @end_date %><br/>
       <strong>Price&nbsp;:</strong>
       <%= @event.price %> €<br/>
       <strong>Location&nbsp;:</strong>
-      <%= @event.location %>
+      <%= @event.location %><br/>
+      <strong>Nombre d'inscrits&nbsp;:</strong>
+      <%= @nb_visitors %>
     </p>
   </div>
   <div class="card-footer text-muted">
