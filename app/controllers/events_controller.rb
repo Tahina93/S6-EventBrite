@@ -12,7 +12,11 @@ class EventsController < ApplicationController
   # GET /events/1
   # GET /events/1.json
   def show
-    @page_title = Event.find(params[:id]).title
+    event = Event.find(params[:id])
+    @page_title = event.title
+    @admin = event.admin
+    @nb_visitors = Attendance.where(created_event_id: params[:id]).count
+    @end_date = find_end_date(event)
   end
 
   # GET /events/new
@@ -83,5 +87,9 @@ class EventsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def event_params
       params.require(:event).permit(:start_date, :duration, :title, :description, :price, :location, :admin)
+    end
+
+    def find_end_date(event)
+      event.start_date + event.duration
     end
 end
