@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Eventbrite</title>
+    <title><%= @page_title %> | Eventbrite</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -25,7 +25,7 @@
             <a class="nav-link" href="<%= root_path %>">Accueil</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="<%= new_events_path %>">Céer un event</a>
+            <a class="nav-link" href="<%= new_events_path %>">Créer un event</a>
           </li>
           <% unless current_user %>
           <li class="nav-item">
