@@ -22,7 +22,8 @@ class EventsController < ApplicationController
 
   # GET /events/1/edit
   def edit
-    @page_title = "Editer \"#{Event.find(params[:id]).title}\""
+    @event = Event.find(params[:id])
+    @page_title = "Editer \"#{@event.title}\""
   end
 
   # POST /events
