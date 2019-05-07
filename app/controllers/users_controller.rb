@@ -1,17 +1,15 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :set_user, only: [:show, :destroy]
+  before_action :authenticate_user!, only: [:show]
+  before_action :is_current_user?, only: [:show]
 
-  # GET /users
-  # GET /users.json
-  def index
-    @users = User.all
-  end
 
   # GET /users/1
   # GET /users/1.json
   def show
+    @events = @user.created_events
+    @owned_events = @user.owned_events
   end
-
 
   # DELETE /users/1
   # DELETE /users/1.json
@@ -33,4 +31,9 @@ class UsersController < ApplicationController
     def user_params
       params.require(:user).permit(:email, :encrypted_password, :description, :first_name, :last_name)
     end
-end
+
+    def is_current_user?
+     return @user==current_user
+   end
+
+ end
