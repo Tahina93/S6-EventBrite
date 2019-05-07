@@ -1,23 +1,28 @@
 <div class="container">
   <p id="notice"><%= notice %></p>
-
-  <h1 class="text-center">Bienvenue sur Event Brite</h1>
   <% if flash[:danger] %>
   <div class="alert alert-danger">
     <%= flash[:danger] %>
   </div>
   <% end %>
+  <!-- Jumbotron Header -->
+  <header class="jumbotron my-4">
+    <h1 class="display-3">Bienvenue sur Event Brite </h1>
+    <p class="lead">Wesh wesh canne à pêche. Bienvenue sur la page d'acceuil de notre EventBrite qui à intérêt à sortir dans le top 1 des meilleurs projet parce que franchement tu vas voir il tue sa mère. Mais si tu l'aime pas c'est pas grave nous on aime bien quand même koeur koeur bisous.
+      😘😘
+    </p>
+    <p class="text-center">
+      <%= link_to 'Nouvel événement', new_event_path, class: "btn btn-primary btn-lg text-white" %>
+    </p>
+  </header>
 
-  <p class="text-center">
-    <%= link_to 'Nouvel événement', new_event_path, class: "btn btn-success" %>
-  </p>
   <div class="accordion" id="accordionEvent">
     <% @events.each do |event| %>
     <div class="card">
       <div class="card-header" id="heading<%= event.id %>">
         <h2 class="mb-0 text-center">
           <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapse<%= event.id %>" aria-expanded="true" aria-controls="collapse<%= event.id %>">
-            <%= event.title %> (<%= event.start_date %>)
+            <%= event.title %> (<%= event.start_date.strftime("Le %F à %Hh%M") %> )
           </button>
         </h2>
       </div>
@@ -31,7 +36,7 @@
         </div>
         <div class="card-footer text-muted text-center">
           <div>
-            <%= link_to 'En savoir plus', event_path(event), class: "btn btn-primary" %>
+            <%= link_to 'En savoir plus', event_path(event), class: "btn btn-primary text-white" %>
           </div>
           <% if event.admin == current_user %>
           <div>
