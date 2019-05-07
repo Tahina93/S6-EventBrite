@@ -36,7 +36,8 @@ class EventsController < ApplicationController
     #event_params.merge!({admin: current_user})
     #params.require(:admin).permit(:admin).merge(admin: current_user)
     puts event_params
-    @event = Event.new(start_date:params[:start_date], duration:params[:duration], title:params[:title], description:params[:description], price:params[:price], location:params[:location], admin:current_user)
+    @event = Event.new(event_params)
+    @event.admin = current_user
 
     respond_to do |format|
       if @event.save
