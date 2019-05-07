@@ -24,7 +24,7 @@ puts " "
 20.times do 
   user = User.create!(
   	email: Faker::Internet.email,
-  	password: Faker::Movies::HarryPotter.spell,
+  	password: "azertyuiop",
   	description: Faker::Movies::HarryPotter.quote,
     first_name: Faker::Name.first_name,
     last_name: Faker::Name.last_name)

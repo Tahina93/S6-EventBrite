@@ -8,10 +8,11 @@ class UserMailer < ApplicationMailer
   	mail(to: @user.email, subject: 'Bienvenue à toi, nouvelle créature !')
   end
 
-  def new_participant_email(user)
-  	@admin = 
-  	@participant =
+	def new_participant_email(attendance)
+		@event = attendance.created_event
+  	@admin = @event.admin
+  	@participant = attendance.participant
 
-  	mail(to: @admin, subject: 'Un nouveau participant pour ton event !!')
+  	mail(to: @admin.email, subject: 'Un nouveau participant pour ton event !!')
   end
 end
