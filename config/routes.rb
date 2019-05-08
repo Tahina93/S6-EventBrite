@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 
   resources :users, only: [:show]
   resources :events
+  resources :charges
   root 'events#index'
   #get 'static_page/index'
   get 'static_page/secret'
