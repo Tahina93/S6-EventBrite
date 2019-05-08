@@ -39,10 +39,11 @@
           <p><%= flash[:error] %></p>
         </div>
         <% end %>
+        <%=  hidden_field_tag(:amount, @event.price*100) %>
       </article>
       <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
       data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-      data-description="A month's subscription"
+      data-description="Join event"
       data-label="S'inscrire"
       data-amount="<%=@event.price*100%>"
       data-locale="auto"></script>
