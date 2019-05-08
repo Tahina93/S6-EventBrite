@@ -1,45 +1,55 @@
 <div class="container">
   <p id="notice"><%= notice %></p>
   <div class="card text-center">
-  <div class="card-header">
-    <h1><%= @event.title %></h1>
-  </div>
-  <div class="card-body">
-    <p class="card-text display-5"><%= @event.description %></p><hr/>
-    <p class="display-5">
-      <strong>Organisateur&nbsp;:</strong>
-      <% if @admin.first_name && @admin.last_name %>
-      <%= @admin.first_name + " " + @admin.last_name + " (" + @admin.email + ")"%>
-      <% else %>
-      <%= @admin.email %>
+    <div class="card-header">
+      <h1><%= @event.title %></h1>
+    </div>
+    <div class="card-body">
+      <p class="card-text display-5"><%= @event.description %></p><hr/>
+      <p class="display-5">
+        <strong>Organisateur&nbsp;:</strong>
+        <% if @admin.first_name && @admin.last_name %>
+        <%= @admin.first_name + " " + @admin.last_name + " (" + @admin.email + ")"%>
+        <% else %>
+        <%= @admin.email %>
+        <% end %>
+        <br/>
+        <strong>Début&nbsp;:</strong>
+        <%= @event.start_date %><br/>
+        <strong>Fin&nbsp;:</strong>
+        <%= @end_date %><br/>
+        <strong>Price&nbsp;:</strong>
+        <%= @event.price %> €<br/>
+        <strong>Location&nbsp;:</strong>
+        <%= @event.location %><br/>
+        <strong>Nombre d'inscrits&nbsp;:</strong>
+        <%= @nb_visitors %>
+      </p>
+    </div>
+    <div class="card-footer text-muted">
+      <% if @event.admin == current_user %>
+      <%= link_to 'Modifier', edit_event_path(@event), class: "btn btn-info"%>
       <% end %>
-      <br/>
-      <strong>Début&nbsp;:</strong>
-      <%= @event.start_date %><br/>
-      <strong>Fin&nbsp;:</strong>
-      <%= @end_date %><br/>
-      <strong>Price&nbsp;:</strong>
-      <%= @event.price %> €<br/>
-      <strong>Location&nbsp;:</strong>
-      <%= @event.location %><br/>
-      <strong>Nombre d'inscrits&nbsp;:</strong>
-      <%= @nb_visitors %>
-    </p>
+      <%= link_to 'Retour', root_path, class: "btn btn-primary" %>
+      <% unless @event.admin == current_user || @event.participants.include?(current_user) %>
+      <article>
+        <% if flash[:error].present? %>
+        <div id="error_explanation">
+          <p><%= flash[:error] %></p>
+        </div>
+        <% end %>
+      </article>
+      <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+      data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+      data-description="A month's subscription"
+      data-label="S'inscrire"
+      data-amount="<%=@event.price*100%>"
+      data-locale="auto"></script>
+      <% end %>
+      <%= form_tag charges_path do %>
+      <% end %>
+    </div>
   </div>
-  <div class="card-footer text-muted">
-    <% if @event.admin == current_user %>
-    <%= link_to 'Modifier', edit_event_path(@event), class: "btn btn-info"%>
-    <% end %>
-    <%= link_to 'Retour', root_path, class: "btn btn-primary" %>
-  </div>
-</div>
 
 
-
-
-  <p>
-    
-  </p>
-
-  
 </div>
