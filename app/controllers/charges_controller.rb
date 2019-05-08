@@ -18,10 +18,18 @@ class ChargesController < ApplicationController
       description: 'Rails Stripe customer',
       currency: 'eur',
     })
-    puts "************* #{params[:amount]}*********"
+    puts "******HAHAH******* #{params[:amount]}*************"
+    
+    redirect_to new_attendances_path
 
-  rescue Stripe::CardError => e
-    flash[:error] = e.message
-    redirect_to new_charge_path
+    rescue Stripe::CardError => e
+      flash[:error] = e.message
+      #redirect_to new_charge_path
+    end
+
+    
   end
+  
+  #redirect_back fallback_location: "http://www.google.com"
+  #self.redirect_to Rails.application.routes.url_helpers.new_attendance_path
 end

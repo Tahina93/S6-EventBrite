@@ -34,12 +34,6 @@ class EventsController < ApplicationController
   # POST /events
   # POST /events.json
   def create
-    puts "asticot"
-    puts current_user
-    #event_params[:admin] = current_user
-    #event_params.merge!({admin: current_user})
-    #params.require(:admin).permit(:admin).merge(admin: current_user)
-    puts event_params
     @event = Event.new(event_params)
     @event.admin = current_user
 
