@@ -1,9 +1,12 @@
 class ChargesController < ApplicationController
 
   def new
+  	@event = Event.find(params[:id])
   end
 
   def create
+
+  	#@event = Event.find(params[:id])
     # Amount in cents
     @amount = params[:amount]
 
@@ -18,13 +21,14 @@ class ChargesController < ApplicationController
       description: 'Rails Stripe customer',
       currency: 'eur',
     })
-    puts "******HAHAH******* #{params[:amount]}*************"
     
-    redirect_to new_attendance_path
+    @attendance = Attendance.create(stripe_customer_id: customer.id, created_event: @event, participant: current_user)
+    
+    redirect_to event_path(@event.id)
 
     rescue Stripe::CardError => e
       flash[:error] = e.message
-      #redirect_to new_charge_path
+      redirect_to new_charge_path
 
 
     
