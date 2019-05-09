@@ -20,7 +20,7 @@ class ChargesController < ApplicationController
     })
     puts "******HAHAH******* #{params[:amount]}*************"
     
-    redirect_to new_attendances_path
+    redirect_to new_attendance_path
 
     rescue Stripe::CardError => e
       flash[:error] = e.message
