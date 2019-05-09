@@ -36,7 +36,6 @@ class EventsController < ApplicationController
   def create
     @event = Event.new(event_params)
     @event.admin = current_user
-    @picture = @event.picture.attach(params[:picture])
 
     respond_to do |format|
       if @event.save

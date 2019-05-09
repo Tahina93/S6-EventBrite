@@ -1,4 +1,4 @@
-<%= form_with(model: event, local: true) do |form| %>
+<%= form_with(model: event, local: true, multipart: true) do |form| %>
 <% if event.errors.any? %>
 <div id="error_explanation">
   <h2><%= pluralize(event.errors.count, "error") %> prohibited this event from being saved:</h2>
@@ -48,9 +48,8 @@
 </div>
 
 <div class="form-group">
-  <%= form.label :picture, "Photo" %>
-  <%= form.file_field :picture,
-  class: "form-control" %>
+  <%= form.label :picture, "image" %>
+  <%= file_field_tag :picture %>
 </div>
 
 <div class="actions mt-5">
