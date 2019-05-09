@@ -47,6 +47,12 @@
   class: "form-control" %>
 </div>
 
+<div class="form-group">
+  <%= form.label :picture, "Photo" %>
+  <%= form.file_field :picture,
+  class: "form-control" %>
+</div>
+
 <div class="actions mt-5">
   <%= form.submit "Envoyer", class: "btn btn-lg btn-primary btn-block"%>
 </div>

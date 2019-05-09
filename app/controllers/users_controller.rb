@@ -13,7 +13,8 @@ class UsersController < ApplicationController
       @page_title << "de " + user.first_name + " " + user.last_name
     end
     @events = user.created_events
-    @owned_events = user.owned_events
+    @owned_events = user.
+    
   end
 
   # DELETE /users/1

@@ -8,6 +8,7 @@ class Event < ApplicationRecord
   validates :price, presence: true, numericality: {greater_than: 0, smaller_than: 1000}
   validates :location, presence: true
 
+  has_one_attached :picture
 
   belongs_to :admin, foreign_key: "admin_id", class_name: "User"
 

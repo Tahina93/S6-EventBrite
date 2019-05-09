@@ -4,6 +4,11 @@
     <div class="card-header">
       <h1><%= @event.title %></h1>
     </div>
+    <%if @event.picture.attached?%>
+  <%= image_tag @event.picture, alt: 'picture' %>
+<%else%>
+  <p>=== Il n'y a pas encore d'image liée à cet évenement ===</p>
+<%end%>
     <div class="card-body">
       <p class="card-text display-5"><%= @event.description %></p><hr/>
       <p class="display-5">
