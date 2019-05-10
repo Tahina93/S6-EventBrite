@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <title><%= @page_title %><%= " | " if @page_title %>Eventbrite</title>
+  <title><%= @page_title %><%= " | " if @page_title %> Dashboard | Eventbrite</title>
   <%= csrf_meta_tags %>
   <%= csp_meta_tag %>
 
@@ -22,10 +22,10 @@
     <div class="collapse navbar-collapse" id="navbarResponsive">
       <ul class="navbar-nav ml-auto">
         <li class="nav-item">
-          <a class="nav-link" href="<%= root_path %>">Accueil</a>
+          <a class="nav-link" href="<%= admin_root_path %>">Accueil</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="<%= new_event_path %>">Créer un event</a>
+          <a class="nav-link" href="<%= admin_users_path %>">Membres</a>
         </li>
         <% unless current_user %>
         <li class="nav-item">
@@ -45,10 +45,6 @@
                 <%= current_user.email %>
               </a>
               <div class="dropdown-menu bg-dark" aria-labelledby="dropdownMenuLink">
-                <a class="nav-link" href="<%= user_path(current_user.id) %>">Profil</a>
-                <% if current_user.is_admin %>
-                <a class="nav-link" href="<%= admin_root_path %>">Dashboard</a>
-                <% end %>
                 <a class="nav-link" href="<%= destroy_user_session_path %>" data-method= "delete">Déconnexion</a>
               </div>
             </li>

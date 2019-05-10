@@ -1,0 +1,28 @@
+<div class="container">
+    <h1 class="text-center">Membres</h1>
+    
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nom</th>
+                <th>Prénom</th>
+                <th>E-mail</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tfoot>
+        </tfoot>
+        <tbody>
+        <% @users.each do |user|%>
+            <tr>
+                <td><%= user.id %></td>
+                <td><%= user.last_name %></td>
+                <td><%= user.first_name %></td>
+                <td><%= user.email %></td>
+                <td><%= user.Description %></td>
+            </tr>
+        <% end %>
+        </tbody>
+    </table>
+</div>

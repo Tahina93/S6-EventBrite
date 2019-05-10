@@ -13,5 +13,11 @@ Rails.application.routes.draw do
   root 'events#index'
   #get 'static_page/index'
   get 'static_page/secret'
+
+  namespace :admin do
+    devise_for :users
+    root 'admin#index'
+    resources :users
+  end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
