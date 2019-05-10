@@ -13,7 +13,7 @@ class UsersController < ApplicationController
       @page_title << "de " + user.first_name + " " + user.last_name
     end
     @events = user.created_events
-    @owned_events = user.
+    @owned_events = user.owned_events
     
   end
 
@@ -28,21 +28,22 @@ class UsersController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_user
-      @user = User.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def user_params
-      params.require(:user).permit(:email, :encrypted_password, :description, :first_name, :last_name)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_user
+    @user = User.find(params[:id])
+  end
 
-    def is_current_user?
-     unless @user==current_user
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def user_params
+    params.require(:user).permit(:email, :encrypted_password, :description, :first_name, :last_name)
+  end
+
+  def is_current_user?
+    unless @user==current_user
       flash[:danger] = "Tu n'es pas cet utilisateur."
-       redirect_to root_path
-     end
-   end
+        redirect_to root_path
+    end
+  end
 
  end
