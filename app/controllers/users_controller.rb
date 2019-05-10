@@ -13,8 +13,8 @@ class UsersController < ApplicationController
       @page_title << "de " + user.first_name + " " + user.last_name
     end
     @events = user.created_events
-    @owned_events = user.
-    
+    @owned_events = user.owned_events
+
   end
 
   # DELETE /users/1
@@ -41,8 +41,8 @@ class UsersController < ApplicationController
     def is_current_user?
      unless @user==current_user
       flash[:danger] = "Tu n'es pas cet utilisateur."
-       redirect_to root_path
-     end
-   end
+      redirect_to root_path
+    end
+  end
 
- end
+end

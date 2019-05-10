@@ -20,12 +20,18 @@
         <%= f.label :password_confirmation, "Confirmation du mot de passe" %><br />
         <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control" %>
       </div>
-
-      <div class="actions mt-5">
-        <%= f.submit "Envoyer", class: "btn btn-lg btn-primary btn-block" %>
+      <div class="form-group">
+        <%= f.label :first_name %><br />
+        <%= f.text_field :first_name, autocomplete: "first_name", class: "form-control" %>
       </div>
-      <% end %>
-      <p class="text-center"><%= render "devise/shared/links" %></p>
+      <div class="form-group">
+        <%= f.label :last_name %><br />
+        <%= f.text_field :last_name, autocomplete: "last_name", class: "form-control" %>
+        <div class="actions mt-5">
+          <%= f.submit "Envoyer", class: "btn btn-lg btn-primary btn-block" %>
+        </div>
+        <% end %>
+        <p class="text-center"><%= render "devise/shared/links" %></p>
+      </div>
     </div>
   </div>
-</div>

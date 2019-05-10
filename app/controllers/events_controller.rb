@@ -35,6 +35,7 @@ class EventsController < ApplicationController
   # POST /events.json
   def create
     @event = Event.new(event_params)
+    @event.picture.attach(params[:picture])
     @event.admin = current_user
 
     respond_to do |format|
@@ -51,6 +52,7 @@ class EventsController < ApplicationController
   # PATCH/PUT /events/1
   # PATCH/PUT /events/1.json
   def update
+    @event.picture.attach(params[:picture])
     respond_to do |format|
       if @event.update(event_params)
         format.html { redirect_to @event, notice: 'Event was successfully updated.' }
@@ -86,4 +88,4 @@ class EventsController < ApplicationController
     def find_end_date(event)
       event.start_date + event.duration
     end
-end
+  end
