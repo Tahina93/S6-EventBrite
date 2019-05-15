@@ -1,0 +1,203 @@
+/****************
+*               *
+*    Layout     *
+*               *
+****************/
+
+main
+{
+    min-height: 75vh;
+}
+
+.container-fluid
+{
+    padding: 0;
+}
+
+h1 {text-align: center;}
+
+.center
+{
+    text-align: center;
+}
+
+/****************
+*               *
+*    Navbar     *
+*               *
+****************/
+
+.navbar
+{
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 400000;
+    width: 100vw;
+}
+
+/****************
+*               *
+*    Footer     *
+*               *
+****************/
+
+footer a, footer a:hover, footer a:focus, footer a:visited, footer a:active
+{
+    color: var(--dark);
+    font-weight: bold;
+}
+
+/****************
+*               *
+*    Banner     *
+*               *
+****************/
+
+.jumbotron {border-radius: 0;}
+
+.jumbotron.banner-bg
+{
+    height: 50vh;
+    background-image: url("img/pineapples.jpg");
+    background-size: cover;
+    background-position-y: center;  
+}
+
+
+.jumbotron h1
+{
+    font-size: 10vh;
+    color: var(--primary);
+    text-shadow: 5px 5px 10px var(--primary);
+}
+
+.jumbotron.banner-bg p
+{
+    font-size: 3vh;
+    color: var(--light);
+    text-align: center;
+}
+
+.jumbotron.banner-bg .btn
+{
+    background: var(--secondary);
+    font-weight: bold;
+}
+
+.jumbotron.banner-sm
+{
+    height: 25vh;
+    background-image: url("img/pineapple.jpg");
+    background-size: cover;
+    background-position-y: center;
+}
+
+
+/****************
+*               *
+*      Card     *
+*               *
+****************/
+
+.card
+{
+    height: 566px;
+}
+.card-container
+{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.col-md-4
+{
+	padding: 0;
+}
+
+.card-body
+{
+    display: flex;
+    align-items: center;
+}
+
+.card-body > div
+{
+    width: 100%
+}
+
+/****************
+*               *
+*  Ressources   *
+*               *
+****************/
+
+.mockup-img
+{
+    border-radius: 5px;
+    min-height: 200px;
+}
+
+.type-event
+{
+    font-size: 2rem;
+}
+
+.stripe-button-el, .stripe-button-el>span
+{
+    background-image: none !important;
+    background: var(--primary) !important;
+}
+
+/****************
+*               *
+* Presentations *
+*               *
+****************/
+
+.zig-zag
+{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 50px;
+}
+
+.photo-zig-zag {
+    width: 50%;
+    height: 400px;
+}
+
+.text-zig-zag {
+    width: 45%;
+    font-size: 50px;
+    color: var(--danger);
+    display: flex;
+    align-items: center;
+}
+
+/****************
+*               *
+*      404      *
+*               *
+****************/
+
+.header-404
+{
+    font-size: 80px;
+    color: var(--danger)
+}
+
+.content-404
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 75vh;
+    color: var(--info);
+    font-size: 30px;
+}
+
+.content-404 a
+{
+    color: var(--secondary)
+}

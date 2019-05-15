@@ -1,0 +1,177 @@
+/****************
+*               *
+*    Layout     *
+*               *
+****************/
+
+h1 {text-align: center;}
+
+.center
+{
+    text-align: center;
+}
+
+nav#general
+{
+    position: fixed;
+    bottom:0;
+    left: 0;
+    border-radius: 5px;
+    border: 1px solid var(--primary);
+    padding: 20px
+}
+
+#general li
+{
+    list-style: none;
+    margin-left: -40px;
+}
+
+/****************
+*               *
+*    Footer     *
+*               *
+****************/
+
+footer a, footer a:hover, footer a:focus, footer a:visited, footer a:active
+{
+    color: var(--dark);
+    font-weight: bold;
+}
+
+/****************
+*               *
+*    Banner     *
+*               *
+****************/
+
+.jumbotron.banner-bg
+{
+    height: 50vh;
+    background-image: url("img/pineapples.jpg");
+    background-size: cover;
+    background-position-y: center;
+}
+
+
+.jumbotron h1
+{
+    font-size: 10vh;
+    color: var(--primary);
+    text-shadow: 5px 5px 10px var(--primary);
+}
+
+.jumbotron.banner-bg p
+{
+    font-size: 3vh;
+    color: var(--light);
+    text-align: center;
+}
+
+.jumbotron.banner-bg .btn
+{
+    background: var(--secondary);
+    font-weight: bold;
+}
+
+.jumbotron.banner-sm
+{
+    height: 25vh;
+    background-image: url("img/pineapple.jpg");
+    background-size: cover;
+    background-position-y: center;
+}
+
+
+/****************
+*               *
+*      Card     *
+*               *
+****************/
+
+.col-md-4
+{
+	padding: 0;
+}
+
+.card-body
+{
+    display: flex;
+    align-items: center;
+}
+
+/****************
+*               *
+*  Ressources   *
+*               *
+****************/
+
+.mockup-img
+{
+    background-color: var(--gray);
+    border-radius: 5px;
+    min-height: 200px;
+}
+
+.type-event
+{
+    font-size: 2rem;
+}
+
+/****************
+*               *
+* Presentations *
+*               *
+****************/
+
+.zig-zag
+{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 50px;
+}
+
+.photo-zig-zag {
+    width: 50%;
+    height: 400px;
+}
+
+.text-zig-zag {
+    width: 45%;
+    font-size: 50px;
+    color: var(--danger);
+    display: flex;
+    align-items: center;
+}
+
+/****************
+*               *
+*      404      *
+*               *
+****************/
+
+.text-404
+{
+    
+}
+
+.header-404
+{
+    font-size: 80px;
+    color: var(--danger)
+}
+
+.content-404
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 75vh;
+    color: var(--info);
+    font-size: 30px;
+}
+
+.content-404 a
+{
+    color: var(--secondary)
+}

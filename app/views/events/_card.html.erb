@@ -1,0 +1,22 @@
+<% @events.each do |event| %>
+    <div class="col-md-4 mb-3 card-col">
+        <div class="card ml-2 mr-2">
+            <h3 class="card-header bg-primary text-light"><%= event.title %></h3>
+            <img style="height: 200px; width: 100%; display: block;" src="#" alt="Card image">
+            <div class="card-body">
+                <div>
+                    <p class="card-text"><%= event.description %></p> <hr/>
+                    <p class="center">
+                        <%= link_to 'En savoir plus', event_path(event), class: "btn btn-secondary" %>
+                        <% if event.admin == current_user %>
+                        <%= link_to 'Modifier', edit_event_path(event), class: "btn btn-info" %>
+                        <% end %>
+                    </p>  
+                </div>
+            </div>
+            <div class="card-footer bg-primary text-light">
+                <%= event.start_date.strftime("Le %F à %Hh%M") %>
+            </div>
+        </div>
+    </div>
+<% end %>
