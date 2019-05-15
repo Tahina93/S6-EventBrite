@@ -27,7 +27,13 @@
         <% else%>
         <li class="nav-item">
             <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
-                <button type="button" class="btn btn-primary">Connexion</button>
+                <button type="button" class="btn btn-primary">
+                <%if current_user.first_name && current_user.last_name %>
+                    <%= current_user.first_name + " " + current_user.last_name %>
+                <% else %>
+                    <%= current_user.email %>
+                <% end %>
+                </button>
                 <div class="btn-group" role="group">
                     <button id="btnGroupDrop1" type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button>
                     <div class="dropdown-menu bg-primary" aria-labelledby="btnGroupDrop1" x-placement="bottom-start" style="position: absolute; transform: translate3d(0px, 38px, 0px); top: 0px; left: 0px; will-change: transform;">
